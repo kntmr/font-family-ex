@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "font-family-ex",
+  "version": "1.0",
+  "description": "Customize your font-family.",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "html/popup.html"
+  },
+  "permissions": ["tabs"],
+  "options_page": "html/options.html",
+  "background": {
+    "scripts": ["js/jquery.min.js", "js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/jquery.min.js", "js/content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
